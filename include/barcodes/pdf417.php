@@ -744,10 +744,14 @@ class PDF417 {
 		$maxecl = 8; // starting error level
 		$maxerrsize = (928 - $numcw); // available codewords for error
 		while ($maxecl > 0) {
-			$errsize = (2 << $ecl);
-			if ($maxerrsize >= $errsize) {
-				break;
-			}
+            if($ecl>=0)
+            {
+                $errsize = (2 << $ecl);
+                if ($maxerrsize >= $errsize)
+                {
+                    break;
+                }
+            }
 			--$maxecl;
 		}
 		// check for automatic levels
